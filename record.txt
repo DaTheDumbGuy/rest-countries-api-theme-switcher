@@ -1,0 +1,7 @@
+[First Day]
+ -Creating Project 
+ -Folder Arrangement
+ -Base Styles
+ -Theme(Dark | Light)
+ -Github Repo
+ 
