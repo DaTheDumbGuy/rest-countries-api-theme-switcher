@@ -5,3 +5,7 @@
  -Theme(Dark | Light)
  -Github Repo
  
+[Second Day]
+ -Learning and Using Axios 
+ -CountryCard and Main Component
+ -Testing Data
