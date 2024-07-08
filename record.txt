@@ -9,3 +9,9 @@
  -Learning and Using Axios 
  -CountryCard and Main Component
  -Testing Data
+
+[Third Day]
+ -New Folder/Components Arrangement
+ -Added files for types and api
+ -New Home Page
+ -Added Filter and Search
