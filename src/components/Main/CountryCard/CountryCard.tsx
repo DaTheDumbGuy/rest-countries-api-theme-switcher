@@ -6,13 +6,17 @@ type CountryCardProps = {
 
 export default function CountryCard({ country }: CountryCardProps) {
     return (
-        <div>
-            <h2>{country.name}</h2>
-            <p>Capital: {country.capital}</p>
-            <p>Region: {country.region}</p>
-            <p>Population: {country.population}</p>
-            <img src={country.flag} alt={`Flag of ${country.name}`} />
+        <article>
+            <header>
+                <img src={country.flag} alt={`Flag of ${country.name}`} />
+            </header>
+            <div>
+                <h2>{country.name}</h2>
+                <p>Population: {country.population}</p>
+                <p>Region: {country.region}</p>
+                <p>Capital: {country.capital}</p>
+            </div>
             {/* Add more details as needed */}
-        </div>
+        </article>
     );
 }

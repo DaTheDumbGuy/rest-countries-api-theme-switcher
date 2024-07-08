@@ -22,3 +22,8 @@ export type Country = {
     capital: string;
     flag: string;
 };
+
+export type SearchFilterProps = { 
+    onSearch:(event: React.ChangeEvent<HTMLInputElement>) => void;
+    onFilter:(event: React.ChangeEvent<HTMLSelectElement>) => void;
+}

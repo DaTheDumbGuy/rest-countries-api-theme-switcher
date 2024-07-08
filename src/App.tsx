@@ -1,6 +1,6 @@
 import { ThemeProvider } from "./hooks/ThemeProvider"
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import Home from "./pages/Home/Home";
 export default function App() {
 
 
@@ -9,7 +9,7 @@ export default function App() {
     <>
     <ThemeProvider>
     <Header/>
-    <Main/>
+    <Home/>
     </ThemeProvider>
     </>
   )
