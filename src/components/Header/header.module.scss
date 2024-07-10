@@ -1,0 +1,16 @@
+@use '../../assets/sass/base/variables' as v;
+.b-header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background:var(--bg-elements);
+    padding:2em 1em;
+    margin-bottom:2em;
+    box-shadow:v.$c_shadow;
+
+    &__logoName{
+        font-size:1em; 
+        font-weight:v.$fw_bold;
+    }
+
+}

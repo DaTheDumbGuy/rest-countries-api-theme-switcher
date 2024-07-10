@@ -1,4 +1,4 @@
-
+@use './base/index' as b;
 
 :root{
     --bg-color: hsl(0, 0%, 98%);
@@ -20,10 +20,7 @@
 
 body{
     background:var(--bg-color);
+    color:var(--color)
 }
-h1{
-    color:var(--color);
-    background:var(--bg-elements);
-    box-shadow:0 2px 2px rgba(0,0,0,0.1);
-}
+
 

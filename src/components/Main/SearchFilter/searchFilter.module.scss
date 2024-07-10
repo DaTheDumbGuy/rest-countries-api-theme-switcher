@@ -1,0 +1,72 @@
+@use '../../../assets/sass/base/variables' as v;
+.b-searchFilter{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2.5em;
+    padding:1em;
+    
+    &__search{
+        display:flex;   
+        align-items: center;
+        padding:0.8em 2em;
+        background:var(--bg-elements);
+        width:100%;
+        gap:1em;
+        border-radius:0.5em;
+        box-shadow: v.$c_shadow;
+
+        &__icon{
+            flex:0.5;
+            width:20px;
+            height: 20px;
+        }
+        
+        &__input{
+            flex:3.5;
+            padding:0.5rem;
+            border:none;
+            color:var(--color);
+            background:var(--bg-elements);
+
+            &::placeholder{
+                color:var(--color);
+                font-weight:v.$fw_light;
+                // font-size:0.8em;
+            }
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
+    &__filter{
+        position: relative;
+        display: inline-block;
+        align-self:flex-start;
+        width:50%;
+        background:var(--bg-elements);
+        padding:0.8em 2em 0.8em 1em;    
+
+        &__select {
+            width: 100%;
+            appearance: none; /* Remove the default arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background:inherit;
+            border:none;
+            color:var(--color);
+            font-weight: v.$fw_light;
+        
+            /* Custom arrow */
+        }
+        &::after {
+          content: '▼'; /* Custom arrow symbol */
+          position: absolute;
+          right: 10px; /* Space on the right side of the arrow */
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none; /* Ensure the arrow doesn't interfere with click events */
+        }
+    }
+}
