@@ -31,3 +31,10 @@
    -Filter Styles
    -Being a Lazy and Useless person 
    -Motivation -100
+
+[Sixth Day]
+ -Main content design
+
+  [toFix]
+   -Icon Colors
+   

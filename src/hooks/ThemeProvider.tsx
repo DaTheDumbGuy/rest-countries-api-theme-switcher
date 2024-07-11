@@ -1,11 +1,7 @@
 // src/ThemeProvider.tsx
 
 import { createContext, useContext, useState } from 'react';
-
-interface ThemeContextType {
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
-}
+import { ThemeContextType } from '../types/types';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 

@@ -16,7 +16,7 @@ export default function SearchFilter({onSearch, onFilter}:SearchFilterProps) {
         </div>
         <div className={styles['b-searchFilter__filter']}>
           <select onChange={onFilter} className={styles['b-searchFilter__filter__select']}>
-            <option value="">Filter by region</option>
+            {/* <option value="" >Filter by region</option> */}
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
             <option value="Asia">Asia</option>

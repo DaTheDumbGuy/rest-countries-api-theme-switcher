@@ -1,1 +1,1 @@
-.b-main{background:var(--bg-color)}
+.b-main{background:var(--bg-color);margin:auto}.b-main__countries{display:flex;flex-wrap:wrap;justify-content:center;margin-top:2em;gap:3em}

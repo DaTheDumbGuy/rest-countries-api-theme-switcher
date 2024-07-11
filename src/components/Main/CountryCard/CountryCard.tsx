@@ -1,4 +1,5 @@
 import { Country } from "../../../types/types";
+import styles from './coutryCard.module.scss';
 
 type CountryCardProps = {
     country: Country;
@@ -6,15 +7,15 @@ type CountryCardProps = {
 
 export default function CountryCard({ country }: CountryCardProps) {
     return (
-        <article>
-            <header>
-                <img src={country.flag} alt={`Flag of ${country.name}`} />
+        <article className={styles['b-countryCard']} >
+            <header className={styles['b-countryCard__header']}>
+                <img src={country.flag} alt={`Flag of ${country.name}`}  className={styles['b-countryCard__header__flag']}/>
             </header>
-            <div>
-                <h2>{country.name}</h2>
-                <p>Population: {country.population}</p>
-                <p>Region: {country.region}</p>
-                <p>Capital: {country.capital}</p>
+            <div className={styles['b-countryCard__body']}>
+                <h2 className={styles['b-countryCard__body__title']}>{country.name}</h2>
+                <p className={styles['b-countryCard__body__population']}><strong>Population:</strong> {country.population}</p>
+                <p className={styles['b-countryCard__body__region']}><strong>Region:</strong> {country.region}</p>
+                <p className={styles['b-countryCard__body__capital']}><strong>Capital:</strong> {country.capital}</p>
             </div>
             {/* Add more details as needed */}
         </article>

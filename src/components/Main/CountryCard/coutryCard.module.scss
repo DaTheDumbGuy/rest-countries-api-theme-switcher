@@ -1,0 +1,37 @@
+@use '../../../assets/sass/base/variables' as v;
+.b-countryCard{
+    width:300px;
+    height:auto;
+    box-shadow: v.$c_shadow;
+    background:var(--bg-elements);
+    overflow: hidden;
+    border-radius:5px;
+    box-shadow:v.$c_shadow;
+
+    &__header{
+        box-shadow: v.$c_shadow;
+        background:red;
+        &__flag{
+            display: block;
+            width:100%;
+            height:180px;
+            object-fit: cover;
+        }
+    }
+    &__body{
+        padding: 2em 2em 3em 2em ;
+
+        &__title{
+            font-weight: v.$fw_bold;
+            margin-bottom:0.5em;
+        }
+        p{
+            font-weight: v.$fw_light;
+            line-height: 1.8em;
+            strong{
+
+                font-weight: v.$fw_normal;
+            }
+        }
+    }
+}

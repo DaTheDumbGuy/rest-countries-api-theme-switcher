@@ -4,6 +4,7 @@ import { getCountry } from "../../services/api";
 import CountryCard from "./CountryCard/CountryCard";
 import SearchFilter from "./SearchFilter/SearchFilter";
 import styles from './main.module.scss';
+
 export default function Main() {
     const [data, setData] = useState<Country[]>([]);
     const [error, setError] = useState<string | null>(null);
@@ -38,9 +39,11 @@ export default function Main() {
         <main className={styles['b-main']}>
             <SearchFilter onSearch={handleSearch} onFilter={handleFilter} />
             {error && <p>{error}</p>}
-            {filteredData.map((country, index) => (
-                <CountryCard key={index} country={country} />
-            ))}
+            <section className={styles['b-main__countries']}>
+              {filteredData.map((country, index) => (
+                  <CountryCard key={index} country={country} />
+              ))}
+            </section>
         </main>
     );
 }

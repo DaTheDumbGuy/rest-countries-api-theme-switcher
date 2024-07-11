@@ -9,10 +9,11 @@
     &__search{
         display:flex;   
         align-items: center;
-        padding:0.8em 2em;
+        padding:0.8em 1em;
+        max-width:400px;
+        align-self: flex-start;
         background:var(--bg-elements);
         width:100%;
-        gap:1em;
         border-radius:0.5em;
         box-shadow: v.$c_shadow;
 
@@ -41,32 +42,39 @@
     }
 
     &__filter{
-        position: relative;
-        display: inline-block;
+        display:flex;
         align-self:flex-start;
         width:50%;
+        max-width:250px;
+        height:53px;
         background:var(--bg-elements);
-        padding:0.8em 2em 0.8em 1em;    
+        padding:0.8em 1em;    
+        border-radius:0.5em;
+        box-shadow: v.$c_shadow;
 
         &__select {
             width: 100%;
-            appearance: none; /* Remove the default arrow */
-            -webkit-appearance: none;
-            -moz-appearance: none;
             background:inherit;
             border:none;
             color:var(--color);
             font-weight: v.$fw_light;
-        
-            /* Custom arrow */
+            
+            &:focus{
+                outline: none    ;
+            }
         }
-        &::after {
-          content: '▼'; /* Custom arrow symbol */
-          position: absolute;
-          right: 10px; /* Space on the right side of the arrow */
-          top: 50%;
-          transform: translateY(-50%);
-          pointer-events: none; /* Ensure the arrow doesn't interfere with click events */
-        }
+      
     }
+}
+
+@media (min-width:768px) {
+    .b-searchFilter{
+        flex-direction: row;
+        justify-content: space-between;
+        &__search{
+            padding-left:0.5em;
+        }
+
+    }
+
 }

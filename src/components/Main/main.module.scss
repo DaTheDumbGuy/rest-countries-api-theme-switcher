@@ -1,3 +1,13 @@
 .b-main{
     background:var(--bg-color);
+    margin: auto;
+
+    &__countries{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top:2em;
+        gap:3em;
+
+    }
 }
