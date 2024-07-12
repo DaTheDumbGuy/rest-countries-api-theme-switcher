@@ -1,13 +1,20 @@
 .b-main{
     background:var(--bg-color);
     margin: auto;
+    padding: 0 1em;
 
     &__countries{
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
         margin-top:2em;
         gap:3em;
 
     }
 }
+
+@media (min-width:1440px) {
+    .b-main{
+        padding:0 4em;
+    }
+}   

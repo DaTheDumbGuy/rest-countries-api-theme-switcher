@@ -14,3 +14,13 @@
     }
 
 }
+@media (min-width:768px) {
+    .b-header{
+        padding-right: 4em;
+        padding-left: 4em;
+
+        &__logoName{
+            font-size:1.5em;
+        }
+    }
+}

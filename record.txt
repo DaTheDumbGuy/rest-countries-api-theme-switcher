@@ -37,4 +37,9 @@
 
   [toFix]
    -Icon Colors
-   
+
+[Seventh Day]
+ -Home design Done(Mobile/Desktop)
+
+ [toFix]
+  -Filter design
