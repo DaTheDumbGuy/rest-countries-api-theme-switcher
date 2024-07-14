@@ -43,3 +43,15 @@
 
  [toFix]
   -Filter design
+
+[Eight Day]
+ -Tired af did nothing
+
+[Ninth Day]
+ -Country Description Base(no style)
+ -I wanna die
+
+ [toFix]
+  -Should use alpha3Code instead of cioc
+  -Add Back Button
+  -Semantic tags(JSX arrangements) 

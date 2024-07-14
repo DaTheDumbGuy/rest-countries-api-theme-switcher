@@ -21,6 +21,7 @@ export type Country = {
     region: string;
     capital: string;
     flag: string;
+    cioc:string;
 };
 
 export type SearchFilterProps = { 
