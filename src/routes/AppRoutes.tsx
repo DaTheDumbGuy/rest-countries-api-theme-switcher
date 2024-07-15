@@ -9,7 +9,7 @@ function AppRoutes() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="*" element={<NotFound />} />
-                <Route path="/country-description/:cioc" element={<CountryDescription/>}/>
+                <Route path="/country-description/:alpha3Code" element={<CountryDescription/>}/>
             </Routes>
         </Router>
     );

@@ -8,7 +8,7 @@ type CountryCardProps = {
 
 export default function CountryCard({ country }: CountryCardProps) {
     return (
-        <Link to={`/country-description/${country.cioc}`} >
+        <Link to={`/country-description/${country.alpha3Code}`} >
         <article className={styles['b-countryCard']} >
             <header className={styles['b-countryCard__header']}>
                 <img src={country.flag} alt={`Flag of ${country.name}`}  className={styles['b-countryCard__header__flag']}/>

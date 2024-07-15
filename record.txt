@@ -55,3 +55,12 @@
   -Should use alpha3Code instead of cioc
   -Add Back Button
   -Semantic tags(JSX arrangements) 
+
+[Tenth Day]
+ -Country Description Semantics and class
+ -Change the params
+ -New files
+
+ [toFix]
+  -Iterating to Countries and Languages
+  -Card design
