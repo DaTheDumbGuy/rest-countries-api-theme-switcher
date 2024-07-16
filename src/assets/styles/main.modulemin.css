@@ -1,1 +1,1 @@
-.b-main{background:var(--bg-color);margin:auto}.b-main__countries{display:flex;flex-wrap:wrap;justify-content:center;margin-top:2em;gap:3em}
+.b-main{background:var(--bg-color);padding:0 1em}.b-main__countries{display:flex;flex-wrap:wrap;justify-content:space-evenly;margin-top:2em;gap:3em}@media(min-width: 1440px){.b-main{padding:0 4em}}

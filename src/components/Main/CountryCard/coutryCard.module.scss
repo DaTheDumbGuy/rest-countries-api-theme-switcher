@@ -1,4 +1,8 @@
 @use '../../../assets/sass/base/variables' as v;
+.b-countryCardLink{
+    text-decoration: none;
+    color: inherit;
+}
 .b-countryCard{
     width:300px;
     height:auto;
@@ -10,6 +14,7 @@
 
     &__header{
         box-shadow: v.$c_shadow;
+
         &__flag{
             display: block;
             width:100%;
@@ -23,6 +28,7 @@
         &__title{
             font-weight: v.$fw_bold;
             margin-bottom:0.5em;
+            text-decoration: none;
         }
         p{
             font-weight: v.$fw_light;

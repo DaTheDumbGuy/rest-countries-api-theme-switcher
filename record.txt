@@ -64,3 +64,12 @@
  [toFix]
   -Iterating to Countries and Languages
   -Card design
+
+[Eleventh Day]
+ -Added Border Countries and Languages
+ -Country Description Design(Mobile/On progress)
+ 
+ [toFix]
+ -Design for Desktop
+ -Back Icon
+ -Final touch(Design)

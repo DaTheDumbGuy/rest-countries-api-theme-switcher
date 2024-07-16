@@ -12,9 +12,8 @@ export default function CountryDescription() {
   const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  // const [languageNames, setLanguageNames] = useState<string | undefined>('');
-  // const [borderCountryNames, setBorderCountryNames] = useState<string[] | undefined >([]);
-
+  const [borderCountryNames, setBorderCountryNames] = useState<string[]>();
+  const [languages, setLanguages] = useState<string>();
   useEffect(() => {
     const fetchCountryData = async () => {
       try {
@@ -24,14 +23,6 @@ export default function CountryDescription() {
         const foundCountry =  fetchedCountries.find((c) => c.alpha3Code === alpha3Code);
         setCountry(foundCountry || null);
 
-        // const foundLanguageNames = foundCountry?.languages.map(language => language.name).join(', ');
-        // setLanguageNames(foundLanguageNames);
-
-        // const foundBorderCountries = foundCountry?.borders
-        // .map(borderCioc => countries.find(c => c.alpha3Code === borderCioc)?.name)
-        // .filter(Boolean);
-
-        // setBorderCountryNames(foundBorderCountries);
       } catch (err) {
         setError('Failed to fetch country data');
       } finally {
@@ -42,30 +33,38 @@ export default function CountryDescription() {
     fetchCountryData();
   }, [alpha3Code]);
 
+  useEffect(() => {
+    if (country) {
+        // Perform any manipulation with the country data
+        const getBorderCountryNames = country.borders
+            .map(borderAlpha3Code => countries.find(c => c.alpha3Code === borderAlpha3Code)?.name)
+            .filter((name): name is string => Boolean(name)); // Type guard to filter out undefined values
+        
+        const getLanguages = country?.languages.map(language => language.name).join(', ');
+        console.log(getLanguages);
+        console.log(getBorderCountryNames);
+        console.log('Country data is available:', country);
+        setBorderCountryNames(getBorderCountryNames);
+        setLanguages(getLanguages);
+    }
+}, [country, countries]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
-//  setLanguageNames(country?.languages.map(language => language.name).join(', ')); 
-// setBorderCountryNames(
-  
-// )
-  // const borderCountryNames = country?.borders
-  // .map(borderCioc => countries.find(c => c.alpha3Code === borderCioc)?.name)
-  // .filter(Boolean);
-  // console.log(borderCountryNames);
   console.log(countries);
 
 
   return (
     <main className={styles['b-main']}>
-    <Link to="/"><button>Back</button></Link>
+    <Link to="/"><button className={styles[`b-main__backButton`]}>Back</button></Link>
     <article className={styles['b-main__countryDescription']}>
       <header className={styles['b-main__countryDescription__header']}>
-        <h1>{country?.name}</h1>
+        <img src={country?.flag} alt={`Flag of ${country?.name}`} className={styles['b-main__countryDescription__header__flag']} />  
       </header>
       <div className={styles['b-main__countryDescription__body']}>
-        <img src={country?.flag} alt={`Flag of ${country?.name}`} className={styles['b-main__countryDescription__body__flag']} />
         <section className={styles['b-main__countryDescription__body__section']}>
+          <h1>{country?.name}</h1>
           <p><strong>Native Name:</strong> {country?.nativeName}</p>
           <p><strong>Subregion:</strong> {country?.subregion}</p>
           <p><strong>Population:</strong> {country?.population}</p>
@@ -76,17 +75,17 @@ export default function CountryDescription() {
         <section className={styles['b-main__countryDescription__body__section']}>
           <p><strong>Top Level Domain:</strong> {country?.topLevelDomain}</p>
           <p><strong>Currencies:</strong> {country?.currencies[0].name}</p>
-          {/* <p><strong>Languages:</strong> {languageNames}</p> */}
+          <p><strong>Languages:</strong> {languages}</p>
         </section>
         <section className={styles['b-main__countryDescription__body__section']}>
           <p><strong>Border Countries:</strong></p>
-          {/* <ul className={styles['b-main__countryDescription__body__borderCountries']}>
-            {!loading && borderCountryNames.map((borderCountry) => (
-              <li key={borderCountry} className={styles['b-main__countryDescription__body__borderCountry']}>
+          <ul className={styles['b-main__countryDescription__body__section__borderCountries']}>
+            { borderCountryNames?.map((borderCountry) => (
+              <li key={borderCountry} className={styles['b-main__countryDescription__body__section__borderCountries__country']}>
                 {borderCountry}
               </li>
             ))}  
-          </ul> */}
+          </ul>
         </section>
       </div>
     </article>

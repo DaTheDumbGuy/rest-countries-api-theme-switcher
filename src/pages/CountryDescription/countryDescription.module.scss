@@ -1,0 +1,56 @@
+@use '../../assets/sass//base/variables' as v;
+.b-main{
+    display:griid;
+    place-items:center;
+    padding: 0 1.5em;
+
+    &__backButton{
+        box-shadow: v.$c_shadow ;
+        padding:0.5em 2em;
+    }
+    &__countryDescription{
+        margin-top:3em;
+
+        &__header{
+            background:black;
+            margin:auto;
+            width:100%;
+            margin-bottom:2em;
+    
+            &__flag{
+                display: block;
+                width:100%;
+                height:auto;
+            }        
+        }
+        &__body{
+            display:flex;
+            flex-direction: column;
+            gap:2em;
+
+            &__section{
+
+                h1{
+                    margin-bottom:1em;
+                }
+                p{
+                    line-height:2em;
+                }
+
+                &__borderCountries{
+                    display:flex;
+                    list-style-type: none;
+                    flex-wrap: wrap;
+                    gap:1em;
+
+                    &__country{
+                        box-shadow: v.$c_shadow;
+                        background:var(--bg-elements);
+                        border-radius:2px;
+                        padding:0.5em 1em;
+                    }
+                }
+            }
+        }
+    }
+}
