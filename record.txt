@@ -73,3 +73,10 @@
  -Design for Desktop
  -Back Icon
  -Final touch(Design)
+
+[Twelfth Day]
+  -Country Description Design(Mobile/Desktop)
+
+  [toFix]
+   -Back Icon
+   -Get Data

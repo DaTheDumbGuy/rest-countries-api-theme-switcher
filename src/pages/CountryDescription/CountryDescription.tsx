@@ -5,6 +5,7 @@ import { Country } from '../../types/types';
 import { getCountry } from '../../services/api';
 import styles from './countryDescription.module.scss';
 import { Link } from 'react-router-dom';
+import backArrow from '../../assets/images/backArrow.svg';
 
 export default function CountryDescription() {
   const { alpha3Code } = useParams<{ alpha3Code: string }>();
@@ -41,9 +42,6 @@ export default function CountryDescription() {
             .filter((name): name is string => Boolean(name)); // Type guard to filter out undefined values
         
         const getLanguages = country?.languages.map(language => language.name).join(', ');
-        console.log(getLanguages);
-        console.log(getBorderCountryNames);
-        console.log('Country data is available:', country);
         setBorderCountryNames(getBorderCountryNames);
         setLanguages(getLanguages);
     }
@@ -57,14 +55,14 @@ export default function CountryDescription() {
 
   return (
     <main className={styles['b-main']}>
-    <Link to="/"><button className={styles[`b-main__backButton`]}>Back</button></Link>
+    <Link to="/"><button className={styles[`b-main__backButton`]}><img src={backArrow} alt="" />Back</button></Link>
     <article className={styles['b-main__countryDescription']}>
       <header className={styles['b-main__countryDescription__header']}>
         <img src={country?.flag} alt={`Flag of ${country?.name}`} className={styles['b-main__countryDescription__header__flag']} />  
       </header>
       <div className={styles['b-main__countryDescription__body']}>
-        <section className={styles['b-main__countryDescription__body__section']}>
           <h1>{country?.name}</h1>
+        <section className={styles['b-main__countryDescription__body__section']}>
           <p><strong>Native Name:</strong> {country?.nativeName}</p>
           <p><strong>Subregion:</strong> {country?.subregion}</p>
           <p><strong>Population:</strong> {country?.population}</p>
