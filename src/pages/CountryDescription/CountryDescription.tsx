@@ -2,57 +2,42 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Country } from '../../types/types';
-import { getCountry } from '../../services/api';
 import styles from './countryDescription.module.scss';
 import { Link } from 'react-router-dom';
 import backArrow from '../../assets/images/backArrow.svg';
+import { useCountry } from '../../hooks/CountryProvider';
 
 export default function CountryDescription() {
+  const {countries, error, loading} = useCountry();
   const { alpha3Code } = useParams<{ alpha3Code: string }>();
   const [country, setCountry] = useState<Country | null>(null);
-  const [countries, setCountries] = useState<Country[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [borderCountryNames, setBorderCountryNames] = useState<string[]>();
   const [languages, setLanguages] = useState<string>();
+
   useEffect(() => {
-    const fetchCountryData = async () => {
-      try {
-        const fetchedCountries = await getCountry();
-        setCountries(fetchedCountries);
-
-        const foundCountry =  fetchedCountries.find((c) => c.alpha3Code === alpha3Code);
+        const foundCountry =  countries.find((c) => c.alpha3Code === alpha3Code);
         setCountry(foundCountry || null);
-
-      } catch (err) {
-        setError('Failed to fetch country data');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCountryData();
   }, [alpha3Code]);
 
   useEffect(() => {
     if (country) {
-        // Perform any manipulation with the country data
-        const getBorderCountryNames = country.borders
-            .map(borderAlpha3Code => countries.find(c => c.alpha3Code === borderAlpha3Code)?.name)
-            .filter((name): name is string => Boolean(name)); // Type guard to filter out undefined values
-        
-        const getLanguages = country?.languages.map(language => language.name).join(', ');
-        setBorderCountryNames(getBorderCountryNames);
+        // Ensure borders is an array and countries is not empty
+        const borderCountryNames = Array.isArray(country.borders) && countries.length > 0
+            ? country.borders
+                .map(borderAlpha3Code => countries.find(c => c.alpha3Code === borderAlpha3Code)?.name)
+                .filter((name): name is string => Boolean(name)) // Type guard to filter out undefined values
+            : [];
+
+        const getLanguages = country.languages?.map(language => language.name).join(', ') || '';
+        setBorderCountryNames(borderCountryNames);
         setLanguages(getLanguages);
     }
+    console.log("You are in Country Description");
 }, [country, countries]);
+
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
-
-  console.log(countries);
-
-
   return (
     <main className={styles['b-main']}>
     <Link to="/"><button className={styles[`b-main__backButton`]}><img src={backArrow} alt="" />Back</button></Link>

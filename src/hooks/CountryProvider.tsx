@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useState, useEffect, useContext, useMemo } from 'react';
 import { getCountry } from '../services/api';
 import { CountryContextType, CountryProviderProps, Country } from '../types/types';
 
@@ -22,10 +22,14 @@ export const CountryProvider = ({ children }: CountryProviderProps) => {
     };
 
     fetchCountryData();
+    console.log("Country Provider Rendered");
   }, []);
+  
+  const value = useMemo(() => ({ countries, loading, error }), [countries, loading, error]);
+
 
   return (
-    <CountryContext.Provider value={{ countries, loading, error }}>
+    <CountryContext.Provider value={value}>
       {children}
     </CountryContext.Provider>
   );
@@ -38,4 +42,3 @@ export const useCountry = (): CountryContextType => {
   }
   return context;
 };
-    

@@ -1,40 +1,29 @@
 import { useState, useEffect } from "react";
 import { Country } from "../../types/types";
-import { getCountry } from "../../services/api";
 import CountryCard from "./CountryCard/CountryCard";
 import SearchFilter from "./SearchFilter/SearchFilter";
 import styles from './main.module.scss';
+import { useCountry } from "../../hooks/CountryProvider";
 
 export default function Main() {
-    const [data, setData] = useState<Country[]>([]);
-    const [error, setError] = useState<string | null>(null);
-    const [filteredData, setFilteredData] = useState<Country[]>([]);
+  const {countries, error} = useCountry();
+    const [filteredData, setFilteredData] = useState<Country[]>(countries);
 
     useEffect(() => {
-        getCountry()
-          .then(data => {
-            setData(data);
-            setFilteredData(data); // Initialize filtered data
-          })
-          .catch(error => {
-            setError(error.message);
-          });
-    }, []);
+      setFilteredData(countries);
+    }, [countries]);
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
       const query = event.target.value.toLowerCase();
-      setFilteredData(data.filter(country => country.name.toLowerCase().includes(query)));
+      setFilteredData(filteredData.filter(country => country.name.toLowerCase().includes(query)));
   };
 
   const handleFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
       const region = event.target.value;
-      setFilteredData(region ? data.filter(country => country.region === region) : data);
+      setFilteredData(region ? filteredData.filter(country => country.region === region) : countries);
   };
 
-
-    console.log(error);
-    console.log(data);
-
+  console.log("You are in Main");
     return (
         <main className={styles['b-main']}>
             <SearchFilter onSearch={handleSearch} onFilter={handleFilter} />

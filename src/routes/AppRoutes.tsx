@@ -4,6 +4,7 @@ import NotFound from '../pages/NotFound/NotFound'; // Assuming you have a NotFou
 import CountryDescription from '../pages/CountryDescription/CountryDescription';
 
 function AppRoutes() {
+    console.log("App Routes Rendered")
     return (
         <Router>
             <Routes>

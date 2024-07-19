@@ -6,6 +6,7 @@ import { ThemeContextType } from '../types/types';
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function useTheme() {
+  console.log("Theme Provider Rendered")
   const context = useContext(ThemeContext);
   if (!context) {
     throw new Error('useTheme must be used within a ThemeProvider');
