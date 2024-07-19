@@ -80,3 +80,11 @@
   [toFix]
    -Back Icon
    -Get Data
+
+[13th Day]
+  -Added Countris Provider
+  -Fixed Country Description Undefined error
+
+  [to Fix]
+    -Design for Country Description
+    -Back Icon color
