@@ -15,12 +15,12 @@ export default function Main() {
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
       const query = event.target.value.toLowerCase();
-      setFilteredData(filteredData.filter(country => country.name.toLowerCase().includes(query)));
+      setFilteredData(countries.filter(country => country.name.toLowerCase().includes(query)));
   };
 
   const handleFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
       const region = event.target.value;
-      setFilteredData(region ? filteredData.filter(country => country.region === region) : countries);
+      setFilteredData(region ? countries.filter(country => country.region === region) : countries);
   };
 
   console.log("You are in Main");
