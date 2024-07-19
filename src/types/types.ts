@@ -31,5 +31,13 @@ export type SearchFilterProps = {
 export interface ThemeContextType {
     theme: 'light' | 'dark';
     toggleTheme: () => void;
-  }
+}
   
+export interface CountryProviderProps {
+    children: React.ReactElement;
+}
+export interface CountryContextType {
+    countries: Country[];
+    error: string | null;
+    loading:boolean;
+}
