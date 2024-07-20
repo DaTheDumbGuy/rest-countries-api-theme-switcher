@@ -32,7 +32,6 @@
         &__header{
             background:black;
             margin:auto;
-            // width:100%;
             margin-bottom:2em;
     
             &__flag{
@@ -88,7 +87,6 @@
                 display: inline-block;
                 margin: auto;
                 flex-grow: 1;
-                // min-width:330px;
                 max-width:500px;
             }
             &__body{
@@ -118,13 +116,6 @@
     .b-main{
         max-width: 1440px;
         padding:0 4em;
-
-        &__countryDescription{
-
-            &__header{
-                // width:500px;
-            }
-        }
     }
 }
 @media (min-width:1440px) {
@@ -132,12 +123,5 @@
         max-width: 1440px;
         padding:0 4em;
 
-        &__countryDescription{
-
-            &__header{
-                // min-width:500px; 
-                // max-width:600px;
-            }
-        }
     }
 }
