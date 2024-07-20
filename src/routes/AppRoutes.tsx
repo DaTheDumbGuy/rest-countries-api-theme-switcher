@@ -6,7 +6,7 @@ import CountryDescription from '../pages/CountryDescription/CountryDescription';
 function AppRoutes() {
     console.log("App Routes Rendered")
     return (
-        <Router>
+        <Router basename='/rest-countries-api-theme-switcher'>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="*" element={<NotFound />} />
