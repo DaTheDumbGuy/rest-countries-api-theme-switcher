@@ -4,21 +4,26 @@
     max-width: 430px;
     margin: auto;
     
-    &__backButton{
-        display:flex;
-        align-items: center;
-        justify-content: center;
+    &__backLink{
         text-decoration: none;
-        gap:10px;
-        box-shadow: v.$c_shadow ;
-        padding:0.5em 1.5em;
-        background:var(--bg-elements);
-        border: none;
-        color:var(--color);
 
-        img{
-            height:20px;
-            width: 20px;    
+        &__backButton{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            gap:10px;
+            box-shadow: v.$c_shadow ;
+            padding:0.5em 1.5em;
+            background:var(--bg-elements);
+            border: none;
+            color:var(--color);
+    
+            svg{
+                height:20px;
+                width: 20px;    
+                fill: var(--color);
+            }
         }
     }
     &__countryDescription{
@@ -27,7 +32,7 @@
         &__header{
             background:black;
             margin:auto;
-            width:100%;
+            // width:100%;
             margin-bottom:2em;
     
             &__flag{
@@ -82,12 +87,15 @@
             &__header{
                 display: inline-block;
                 margin: auto;
+                flex-grow: 1;
+                // min-width:330px;
                 max-width:500px;
             }
             &__body{
                 flex-direction: row;
                 flex-wrap: wrap;
                 gap:1em;
+                flex-grow: 2;
     
                 h1{
                     width:100%;
@@ -106,9 +114,30 @@
         }
     }
 }
+@media (min-width:1024px) {
+    .b-main{
+        max-width: 1440px;
+        padding:0 4em;
+
+        &__countryDescription{
+
+            &__header{
+                // width:500px;
+            }
+        }
+    }
+}
 @media (min-width:1440px) {
     .b-main{
         max-width: 1440px;
         padding:0 4em;
+
+        &__countryDescription{
+
+            &__header{
+                // min-width:500px; 
+                // max-width:600px;
+            }
+        }
     }
 }
