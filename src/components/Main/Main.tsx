@@ -13,24 +13,28 @@ export default function Main() {
   const [loading, setLoading] = useState<boolean>(false);
   const observer = useRef<IntersectionObserver>();
 
-  useEffect(() => {
-    setFilteredData(countries);
-    setVisibleCount(Math.ceil(countries.length / 4));
-  }, [countries]);
-
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();
     const filtered = countries.filter(country => country.name.toLowerCase().includes(query));
     setFilteredData(filtered);
-    setVisibleCount(Math.ceil(filtered.length / 4));
+    setVisibleCount(Math.max(Math.ceil(filtered.length / 4), 1)); // Ensure visibleCount is at least 1
+    setLoading(false); // Reset loading state
   };
-
+  
   const handleFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const region = event.target.value;
     const filtered = region ? countries.filter(country => country.region === region) : countries;
     setFilteredData(filtered);
-    setVisibleCount(Math.ceil(filtered.length / 4));
+    setVisibleCount(Math.max(Math.ceil(filtered.length / 4), 1)); // Ensure visibleCount is at least 1
+    setLoading(false); // Reset loading state
   };
+  
+  // Initial setup
+  useEffect(() => {
+    setFilteredData(countries);
+    setVisibleCount(Math.max(Math.ceil(countries.length / 4), 1)); // Ensure visibleCount is at least 1
+  }, [countries]);
+  
 
   const lastElementRef = useCallback((node: HTMLDivElement) => {
     if (observer.current) observer.current.disconnect();
