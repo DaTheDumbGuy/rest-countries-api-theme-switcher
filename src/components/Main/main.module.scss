@@ -1,6 +1,6 @@
 .b-main{
     background:var(--bg-color);
-    padding: 0 1em;
+    padding: 0 1em 2em 1em;
 
     &__countries{
         display: flex;
@@ -14,6 +14,6 @@
 
 @media (min-width:1440px) {
     .b-main{
-        padding:0 4em;
+        padding:0 4em 4em 4em;
     }
 }   
