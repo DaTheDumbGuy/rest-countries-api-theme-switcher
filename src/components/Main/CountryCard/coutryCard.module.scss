@@ -5,7 +5,7 @@
 }
 .b-countryCard{
     width:300px;
-    height:auto;
+    height:380px;
     box-shadow: v.$c_shadow;
     background:var(--bg-elements);
     overflow: hidden;
@@ -23,7 +23,7 @@
         }
     }
     &__body{
-        padding: 2em 2em 3em 2em ;
+        padding:2em ;
 
         &__title{
             font-weight: v.$fw_bold;
