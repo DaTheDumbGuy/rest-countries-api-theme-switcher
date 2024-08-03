@@ -15,7 +15,7 @@ export const CountryProvider = ({ children }: CountryProviderProps) => {
         const fetchedCountries = await getCountry();
         setCountries(fetchedCountries);
       } catch (err) {
-        setError('Failed to fetch country data');
+        setError(`Failed to fetch country data:${err} `);
       } finally {
         setLoading(false);
       }

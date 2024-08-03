@@ -11,7 +11,7 @@ export default function Main() {
   const [filteredData, setFilteredData] = useState<Country[]>(countries);
   const [visibleCount, setVisibleCount] = useState(Math.ceil(countries.length / 4));
   const [loading, setLoading] = useState<boolean>(false);
-  const observer = useRef<IntersectionObserver>();
+  const observer = useRef<IntersectionObserver | null>(null);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();

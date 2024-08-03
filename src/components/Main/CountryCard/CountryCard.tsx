@@ -19,7 +19,6 @@ export default function CountryCard({ country }: CountryCardProps) {
                 <p className={styles['b-countryCard__body__region']}><strong>Region:</strong> {country.region}</p>
                 <p className={styles['b-countryCard__body__capital']}><strong>Capital:</strong> {country.capital}</p>
             </div>
-            {/* Add more details as needed */}
         </article>
         </Link>
     );
